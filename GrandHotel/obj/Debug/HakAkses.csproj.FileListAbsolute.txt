@@ -1,0 +1,13 @@
+D:\Projek C#\HakAkses\HakAkses\bin\Debug\HakAkses.exe.config
+D:\Projek C#\HakAkses\HakAkses\bin\Debug\HakAkses.exe
+D:\Projek C#\HakAkses\HakAkses\bin\Debug\HakAkses.pdb
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.csprojAssemblyReference.cache
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.login.resources
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.Properties.Resources.resources
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.csproj.GenerateResource.cache
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.csproj.CoreCompileInputs.cache
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.exe
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.pdb
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.MenuUtama.resources
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.Dashboard.resources
+D:\Projek C#\HakAkses\HakAkses\obj\Debug\HakAkses.MasterEmployee.resources
