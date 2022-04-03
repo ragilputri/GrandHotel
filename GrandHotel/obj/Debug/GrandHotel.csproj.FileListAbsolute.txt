@@ -61,3 +61,4 @@ D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.GenerateResource.
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.CoreCompileInputs.cache
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.exe
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.pdb
+D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.ResolveComReference.cache

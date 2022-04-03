@@ -28,16 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservation));
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimeStart = new System.Windows.Forms.DateTimePicker();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.CBRoomType = new System.Windows.Forms.ComboBox();
             this.dataGridAvaibleR = new System.Windows.Forms.DataGridView();
+            this.roomnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomfloor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.RBSearch = new System.Windows.Forms.RadioButton();
             this.RBAddNew = new System.Windows.Forms.RadioButton();
             this.dataGridCustomer = new System.Windows.Forms.DataGridView();
+            this.choose = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.panelAddCustomerData = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -48,28 +59,38 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridViewSelectedR = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.numericQty = new System.Windows.Forms.NumericUpDown();
             this.CBItem = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridRequestAI = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.LTotal = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
+            this.dataGridVSRoom = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAvaibleR)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomer)).BeginInit();
             this.panelAddCustomerData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedR)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRequestAI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVSRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,9 +113,11 @@
             // 
             this.txtNumber.Location = new System.Drawing.Point(663, 28);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(100, 26);
+            this.txtNumber.Size = new System.Drawing.Size(117, 26);
             this.txtNumber.TabIndex = 2;
+            this.txtNumber.Text = "0";
             this.txtNumber.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumber_KeyPress);
             // 
             // CBRoomType
             // 
@@ -104,29 +127,58 @@
             this.CBRoomType.Size = new System.Drawing.Size(266, 28);
             this.CBRoomType.TabIndex = 3;
             this.CBRoomType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CBRoomType.SelectedValueChanged += new System.EventHandler(this.CBRoomType_SelectedValueChanged);
+            this.CBRoomType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CBRoomType_KeyPress);
+            this.CBRoomType.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CBRoomType_MouseClick);
             // 
             // dataGridAvaibleR
             // 
+            this.dataGridAvaibleR.AllowUserToAddRows = false;
             this.dataGridAvaibleR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAvaibleR.Location = new System.Drawing.Point(42, 195);
+            this.dataGridAvaibleR.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.roomnumber,
+            this.roomfloor,
+            this.description});
+            this.dataGridAvaibleR.Location = new System.Drawing.Point(18, 195);
             this.dataGridAvaibleR.Name = "dataGridAvaibleR";
             this.dataGridAvaibleR.RowHeadersWidth = 62;
             this.dataGridAvaibleR.RowTemplate.Height = 28;
-            this.dataGridAvaibleR.Size = new System.Drawing.Size(555, 185);
+            this.dataGridAvaibleR.Size = new System.Drawing.Size(579, 185);
             this.dataGridAvaibleR.TabIndex = 4;
             this.dataGridAvaibleR.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // roomnumber
+            // 
+            this.roomnumber.HeaderText = "Room Number";
+            this.roomnumber.MinimumWidth = 8;
+            this.roomnumber.Name = "roomnumber";
+            this.roomnumber.Width = 150;
+            // 
+            // roomfloor
+            // 
+            this.roomfloor.HeaderText = "Room Floor";
+            this.roomfloor.MinimumWidth = 8;
+            this.roomfloor.Name = "roomfloor";
+            this.roomfloor.Width = 150;
+            // 
+            // description
+            // 
+            this.description.HeaderText = "Description";
+            this.description.MinimumWidth = 8;
+            this.description.Name = "description";
+            this.description.Width = 150;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.RBSearch);
             this.groupBox1.Controls.Add(this.RBAddNew);
-            this.groupBox1.Controls.Add(this.panelAddCustomerData);
             this.groupBox1.Controls.Add(this.dataGridCustomer);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(42, 401);
+            this.groupBox1.Controls.Add(this.panelAddCustomerData);
+            this.groupBox1.Location = new System.Drawing.Point(12, 401);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(555, 301);
+            this.groupBox1.Size = new System.Drawing.Size(585, 301);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Data";
@@ -137,10 +189,12 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(185, 26);
             this.txtSearch.TabIndex = 17;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // RBSearch
             // 
             this.RBSearch.AutoSize = true;
+            this.RBSearch.Checked = true;
             this.RBSearch.Location = new System.Drawing.Point(126, 37);
             this.RBSearch.Name = "RBSearch";
             this.RBSearch.Size = new System.Drawing.Size(85, 24);
@@ -148,6 +202,7 @@
             this.RBSearch.TabStop = true;
             this.RBSearch.Text = "Search";
             this.RBSearch.UseVisualStyleBackColor = true;
+            this.RBSearch.CheckedChanged += new System.EventHandler(this.RBSearch_CheckedChanged);
             // 
             // RBAddNew
             // 
@@ -156,19 +211,77 @@
             this.RBAddNew.Name = "RBAddNew";
             this.RBAddNew.Size = new System.Drawing.Size(98, 24);
             this.RBAddNew.TabIndex = 13;
-            this.RBAddNew.TabStop = true;
             this.RBAddNew.Text = "Add New";
             this.RBAddNew.UseVisualStyleBackColor = true;
+            this.RBAddNew.CheckedChanged += new System.EventHandler(this.RBAddNew_CheckedChanged);
             // 
             // dataGridCustomer
             // 
+            this.dataGridCustomer.AllowUserToAddRows = false;
             this.dataGridCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.choose,
+            this.name,
+            this.email,
+            this.gender,
+            this.Column1,
+            this.Column2});
             this.dataGridCustomer.Location = new System.Drawing.Point(6, 112);
             this.dataGridCustomer.Name = "dataGridCustomer";
             this.dataGridCustomer.RowHeadersWidth = 62;
             this.dataGridCustomer.RowTemplate.Height = 28;
             this.dataGridCustomer.Size = new System.Drawing.Size(543, 183);
             this.dataGridCustomer.TabIndex = 12;
+            this.dataGridCustomer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomer_CellClick);
+            this.dataGridCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomer_CellContentClick);
+            // 
+            // choose
+            // 
+            this.choose.HeaderText = "Choose";
+            this.choose.MinimumWidth = 8;
+            this.choose.Name = "choose";
+            this.choose.Width = 50;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 8;
+            this.name.Name = "name";
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.name.Width = 150;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 8;
+            this.email.Name = "email";
+            this.email.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.email.Width = 150;
+            // 
+            // gender
+            // 
+            this.gender.HeaderText = "Gender";
+            this.gender.MinimumWidth = 8;
+            this.gender.Name = "gender";
+            this.gender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.gender.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.gender.Width = 50;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Phone";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Age";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 50;
             // 
             // label4
             // 
@@ -189,6 +302,7 @@
             this.panelAddCustomerData.Name = "panelAddCustomerData";
             this.panelAddCustomerData.Size = new System.Drawing.Size(543, 183);
             this.panelAddCustomerData.TabIndex = 18;
+            this.panelAddCustomerData.Visible = false;
             // 
             // txtName
             // 
@@ -227,9 +341,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(487, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 20);
+            this.label2.Size = new System.Drawing.Size(130, 20);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Number of night";
+            this.label2.Text = "Number of nights";
             // 
             // label3
             // 
@@ -249,6 +363,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label5
             // 
@@ -258,16 +373,6 @@
             this.label5.Size = new System.Drawing.Size(148, 20);
             this.label5.TabIndex = 11;
             this.label5.Text = "List Selected Room";
-            // 
-            // dataGridViewSelectedR
-            // 
-            this.dataGridViewSelectedR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSelectedR.Location = new System.Drawing.Point(708, 195);
-            this.dataGridViewSelectedR.Name = "dataGridViewSelectedR";
-            this.dataGridViewSelectedR.RowHeadersWidth = 62;
-            this.dataGridViewSelectedR.RowTemplate.Height = 28;
-            this.dataGridViewSelectedR.Size = new System.Drawing.Size(555, 185);
-            this.dataGridViewSelectedR.TabIndex = 10;
             // 
             // groupBox3
             // 
@@ -279,7 +384,7 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(708, 401);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(555, 301);
+            this.groupBox3.Size = new System.Drawing.Size(595, 301);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Request Additional Items";
@@ -292,6 +397,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // numericQty
             // 
@@ -319,13 +425,52 @@
             // 
             // dataGridRequestAI
             // 
+            this.dataGridRequestAI.AllowUserToAddRows = false;
             this.dataGridRequestAI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRequestAI.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
             this.dataGridRequestAI.Location = new System.Drawing.Point(6, 112);
             this.dataGridRequestAI.Name = "dataGridRequestAI";
             this.dataGridRequestAI.RowHeadersWidth = 62;
             this.dataGridRequestAI.RowTemplate.Height = 28;
-            this.dataGridRequestAI.Size = new System.Drawing.Size(543, 183);
+            this.dataGridRequestAI.Size = new System.Drawing.Size(555, 183);
             this.dataGridRequestAI.TabIndex = 12;
+            this.dataGridRequestAI.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRequestAI_CellContentClick);
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Item";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Qty";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Price";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Remove";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column6.Text = "Remove";
+            this.Column6.UseColumnTextForButtonValue = true;
+            this.Column6.Width = 150;
             // 
             // label7
             // 
@@ -354,14 +499,14 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Total Price";
             // 
-            // label10
+            // LTotal
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1140, 705);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(110, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Rp. 12000000";
+            this.LTotal.AutoSize = true;
+            this.LTotal.Location = new System.Drawing.Point(1140, 705);
+            this.LTotal.Name = "LTotal";
+            this.LTotal.Size = new System.Drawing.Size(110, 20);
+            this.LTotal.TabIndex = 18;
+            this.LTotal.Text = "Rp. 12000000";
             // 
             // button5
             // 
@@ -371,6 +516,7 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "Submit";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnLeft
             // 
@@ -380,6 +526,7 @@
             this.btnLeft.Size = new System.Drawing.Size(61, 49);
             this.btnLeft.TabIndex = 13;
             this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnRight
             // 
@@ -391,20 +538,70 @@
             this.btnRight.UseVisualStyleBackColor = true;
             this.btnRight.Click += new System.EventHandler(this.button2_Click);
             // 
+            // dataGridVSRoom
+            // 
+            this.dataGridVSRoom.AllowUserToAddRows = false;
+            this.dataGridVSRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridVSRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.dataGridVSRoom.Location = new System.Drawing.Point(708, 195);
+            this.dataGridVSRoom.Name = "dataGridVSRoom";
+            this.dataGridVSRoom.RowHeadersWidth = 62;
+            this.dataGridVSRoom.RowTemplate.Height = 28;
+            this.dataGridVSRoom.Size = new System.Drawing.Size(561, 185);
+            this.dataGridVSRoom.TabIndex = 19;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Room Number";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Room Floor";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(659, 84);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 20);
+            this.label10.TabIndex = 20;
+            // 
             // Reservation
             // 
+            this.AccessibleDescription = resources.GetString("$this.AccessibleDescription");
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 791);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.dataGridVSRoom);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.LTotal);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnLeft);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridViewSelectedR);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -417,17 +614,19 @@
             this.Name = "Reservation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reservation";
+            this.Load += new System.EventHandler(this.Reservation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAvaibleR)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomer)).EndInit();
             this.panelAddCustomerData.ResumeLayout(false);
             this.panelAddCustomerData.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelectedR)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRequestAI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVSRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,7 +654,6 @@
         private System.Windows.Forms.RadioButton RBAddNew;
         private System.Windows.Forms.DataGridView dataGridCustomer;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridViewSelectedR;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -467,7 +665,26 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LTotal;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.DataGridView dataGridVSRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomnumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomfloor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column6;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn choose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label10;
     }
 }

@@ -28,23 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CBRoomNumber = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.NumQty = new System.Windows.Forms.NumericUpDown();
+            this.numericQty = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CBItemStatus = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CBItem = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.LTotal = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.CBItemStatus = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.NumQty)).BeginInit();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // CBRoomNumber
@@ -72,23 +79,31 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // NumQty
+            // numericQty
             // 
-            this.NumQty.Location = new System.Drawing.Point(141, 101);
-            this.NumQty.Name = "NumQty";
-            this.NumQty.Size = new System.Drawing.Size(255, 26);
-            this.NumQty.TabIndex = 4;
+            this.numericQty.Location = new System.Drawing.Point(141, 101);
+            this.numericQty.Name = "numericQty";
+            this.numericQty.Size = new System.Drawing.Size(255, 26);
+            this.numericQty.TabIndex = 4;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(6, 161);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(869, 260);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -96,7 +111,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.NumQty);
+            this.groupBox1.Controls.Add(this.numericQty);
             this.groupBox1.Controls.Add(this.CBItem);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -106,6 +121,23 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Items Detail";
+            // 
+            // CBItemStatus
+            // 
+            this.CBItemStatus.FormattingEnabled = true;
+            this.CBItemStatus.Location = new System.Drawing.Point(620, 46);
+            this.CBItemStatus.Name = "CBItemStatus";
+            this.CBItemStatus.Size = new System.Drawing.Size(255, 28);
+            this.CBItemStatus.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(486, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 20);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Item Status";
             // 
             // label3
             // 
@@ -141,6 +173,7 @@
             this.btnSubmit.TabIndex = 14;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // LTotal
             // 
@@ -160,22 +193,39 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Total Charge :";
             // 
-            // CBItemStatus
+            // errorProvider1
             // 
-            this.CBItemStatus.FormattingEnabled = true;
-            this.CBItemStatus.Location = new System.Drawing.Point(620, 46);
-            this.CBItemStatus.Name = "CBItemStatus";
-            this.CBItemStatus.Size = new System.Drawing.Size(255, 28);
-            this.CBItemStatus.TabIndex = 8;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // label6
+            // Column1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 20);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Item Status";
+            this.Column1.HeaderText = "Item";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Qty";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Total Price";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Remove";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Text = "Remove";
+            this.Column4.UseColumnTextForButtonValue = true;
+            this.Column4.Width = 150;
             // 
             // CheckOut
             // 
@@ -191,10 +241,12 @@
             this.Name = "CheckOut";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckOut";
-            ((System.ComponentModel.ISupportInitialize)(this.NumQty)).EndInit();
+            this.Load += new System.EventHandler(this.CheckOut_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericQty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +257,7 @@
         private System.Windows.Forms.ComboBox CBRoomNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.NumericUpDown NumQty;
+        private System.Windows.Forms.NumericUpDown numericQty;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox CBItemStatus;
@@ -216,5 +268,10 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label LTotal;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewButtonColumn Column4;
     }
 }

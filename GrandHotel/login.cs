@@ -20,6 +20,7 @@ namespace HakAkses
 
         Koneksi koneksi = new Koneksi();
         Hashing hasing = new Hashing();
+
         public login()
         {
             InitializeComponent();
@@ -41,8 +42,10 @@ namespace HakAkses
             if (dr.HasRows)
             {
                 string DataUser;
+                string EmployeeID;
                 DataUser = (string)dr["JobID"].ToString();
-                MenuUtama MU = new MenuUtama(DataUser);
+                EmployeeID = (string)dr["ID"].ToString();
+                MenuUtama MU = new MenuUtama(DataUser, EmployeeID);
                 this.Hide();
                 MU.ShowDialog();
 

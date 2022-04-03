@@ -36,6 +36,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CBHousekeeping = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.housekeeper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,13 +61,20 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.date,
+            this.housekeeper,
+            this.roomnumber,
+            this.remove});
             this.dataGridView1.Location = new System.Drawing.Point(34, 204);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(857, 340);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnAdd
             // 
@@ -73,6 +84,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // CBRoomNum
             // 
@@ -108,6 +120,38 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Housekeeping";
             // 
+            // date
+            // 
+            this.date.HeaderText = "Date";
+            this.date.MinimumWidth = 8;
+            this.date.Name = "date";
+            this.date.Width = 150;
+            // 
+            // housekeeper
+            // 
+            this.housekeeper.HeaderText = "Housekeeper";
+            this.housekeeper.MinimumWidth = 8;
+            this.housekeeper.Name = "housekeeper";
+            this.housekeeper.Width = 150;
+            // 
+            // roomnumber
+            // 
+            this.roomnumber.HeaderText = "Room Number";
+            this.roomnumber.MinimumWidth = 8;
+            this.roomnumber.Name = "roomnumber";
+            this.roomnumber.Width = 150;
+            // 
+            // remove
+            // 
+            this.remove.HeaderText = "Remove";
+            this.remove.MinimumWidth = 8;
+            this.remove.Name = "remove";
+            this.remove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.remove.Text = "Remove";
+            this.remove.UseColumnTextForButtonValue = true;
+            this.remove.Width = 150;
+            // 
             // AddHousekeepingS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -124,6 +168,7 @@
             this.Name = "AddHousekeepingS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddHousekeepingS";
+            this.Load += new System.EventHandler(this.AddHousekeepingS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,5 +185,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBHousekeeping;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn housekeeper;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomnumber;
+        private System.Windows.Forms.DataGridViewButtonColumn remove;
     }
 }

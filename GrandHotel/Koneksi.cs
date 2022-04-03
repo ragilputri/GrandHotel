@@ -12,7 +12,7 @@ namespace HakAkses
         public SqlConnection GetConn()
         {
             SqlConnection Conn = new SqlConnection();
-            Conn.ConnectionString = "data source = ASUS; initial catalog = PC_15; integrated security = true;";
+            Conn.ConnectionString = "data source = ASUS; initial catalog = PC_15; integrated security = true; MultipleActiveResultSets=true;";
             return Conn;
         }
     }

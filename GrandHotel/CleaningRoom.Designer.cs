@@ -31,9 +31,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnExport = new System.Windows.Forms.Button();
             this.dataGridViewCS = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCSD = new System.Windows.Forms.DataGridView();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCSD)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +69,14 @@
             // 
             // dataGridViewCS
             // 
+            this.dataGridViewCS.AllowUserToAddRows = false;
             this.dataGridViewCS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5});
             this.dataGridViewCS.Location = new System.Drawing.Point(32, 62);
             this.dataGridViewCS.Name = "dataGridViewCS";
             this.dataGridViewCS.RowHeadersWidth = 62;
@@ -68,15 +85,76 @@
             this.dataGridViewCS.TabIndex = 2;
             this.dataGridViewCS.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Room Number";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Start Date Time";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "End Date Time";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Note";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Status Cleaning";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
+            // 
             // dataGridViewCSD
             // 
+            this.dataGridViewCSD.AllowUserToAddRows = false;
             this.dataGridViewCSD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCSD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column11,
+            this.Column12,
+            this.Column13});
             this.dataGridViewCSD.Location = new System.Drawing.Point(32, 372);
             this.dataGridViewCSD.Name = "dataGridViewCSD";
             this.dataGridViewCSD.RowHeadersWidth = 62;
             this.dataGridViewCSD.RowTemplate.Height = 28;
             this.dataGridViewCSD.Size = new System.Drawing.Size(792, 221);
             this.dataGridViewCSD.TabIndex = 4;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Item";
+            this.Column11.MinimumWidth = 8;
+            this.Column11.Name = "Column11";
+            this.Column11.Width = 150;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Qty";
+            this.Column12.MinimumWidth = 8;
+            this.Column12.Name = "Column12";
+            this.Column12.Width = 150;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Status";
+            this.Column13.MinimumWidth = 8;
+            this.Column13.Name = "Column13";
+            this.Column13.Width = 150;
             // 
             // label2
             // 
@@ -95,6 +173,11 @@
             this.btnImport.TabIndex = 5;
             this.btnImport.Text = "Import Excel";
             this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // CleaningRoom
             // 
@@ -110,6 +193,7 @@
             this.Name = "CleaningRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CleaningRoom";
+            this.Load += new System.EventHandler(this.CleaningRoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCSD)).EndInit();
             this.ResumeLayout(false);
@@ -125,5 +209,15 @@
         private System.Windows.Forms.DataGridView dataGridViewCSD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

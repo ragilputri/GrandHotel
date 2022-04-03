@@ -21,6 +21,7 @@ namespace HakAkses
         Koneksi koneksi = new Koneksi();
 
         public static MenuUtama menu;
+        string ide;
 
         public MenuUtama()
         {
@@ -29,9 +30,10 @@ namespace HakAkses
         }
 
 
-        public MenuUtama(string DataUser)
+        public MenuUtama(string DataUser, string EmployeeID)
             : this()
         {
+            ide = EmployeeID.ToString();
             SqlConnection conn = koneksi.GetConn();
             conn.Open();
             cmd = new SqlCommand("select * from Job where ID = '" + DataUser + "'", conn);
@@ -94,8 +96,23 @@ namespace HakAkses
 
         private void btnNavCR_Click(object sender, EventArgs e)
         {
-            CleaningRoom cleaningRoom = new CleaningRoom();
-            cleaningRoom.ShowDialog();
+            SqlConnection conn = koneksi.GetConn();
+            conn.Open();
+            cmd = new SqlCommand("select * from Employee where ID = '" + ide + "'", conn);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+                string EmployeeName = (string)dr["Name"];
+                string IDEmployee = dr["ID"].ToString();
+                CleaningRoom cleaningRoom = new CleaningRoom(IDEmployee, EmployeeName);
+                cleaningRoom.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Tidak ada data employee");
+            }
+            conn.Close();
         }
 
         private void btnNavAHS_Click(object sender, EventArgs e)
@@ -106,7 +123,9 @@ namespace HakAkses
 
         private void btnNavR_Click(object sender, EventArgs e)
         {
-            Reservation reservation = new Reservation();
+            string EmployeeID;
+            EmployeeID = ide;
+            Reservation reservation = new Reservation(EmployeeID);
             reservation.ShowDialog();
         }
 
