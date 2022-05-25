@@ -43,7 +43,6 @@ D:\Projek C#\GrandHotel\HakAkses\obj\Debug\HakAkses.pdb
 D:\Projek C#\GrandHotel\GrandHotel\bin\Debug\HakAkses.exe.config
 D:\Projek C#\GrandHotel\GrandHotel\bin\Debug\HakAkses.exe
 D:\Projek C#\GrandHotel\GrandHotel\bin\Debug\HakAkses.pdb
-D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csprojAssemblyReference.cache
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.AddHousekeepingS.resources
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.CheckIn.resources
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.CheckOut.resources
@@ -62,3 +61,5 @@ D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.CoreCompileInputs
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.exe
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\HakAkses.pdb
 D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.ResolveComReference.cache
+D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.AssemblyReference.cache
+D:\Projek C#\GrandHotel\GrandHotel\obj\Debug\GrandHotel.csproj.SuggestedBindingRedirects.cache
